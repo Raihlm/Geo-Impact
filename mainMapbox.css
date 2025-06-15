@@ -1,0 +1,1131 @@
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+}
+
+.mapboxgl-ctrl-logo, .mapboxgl-ctrl-attrib{
+    display: none !important;
+}
+
+.mapboxgl-popup-content{
+    background-color: aliceblue;
+    color: black;
+}
+
+/* Geo Impact button styling */
+.geo-impact-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px;
+    transition: all 0.3s;
+}
+
+.geo-impact-button:hover {
+    color: #4dabf7;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+.offcanvas.text-bg-dark {
+    background-color: #212529;
+    color: #fff;
+}
+
+.offcanvas.text-bg-dark .dropdown-menu {
+    background-color: #343a40;
+}
+
+/* Updated popup styling for dark theme */
+.custom-earthquake-popover {
+  max-width: 300px;
+}
+
+.custom-earthquake-popover .mapboxgl-popup-content {
+  background-color: #212529;
+  color: #fff;
+  padding: 0;
+  border-radius: 6px;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.custom-earthquake-popover .mapboxgl-popup-close-button {
+  color: white;
+  font-size: 16px;
+  padding: 5px 10px;
+}
+
+.custom-earthquake-popover .popover-header {
+  background-color: #343a40;
+  color: white;
+  padding: 12px;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 16px;
+}
+
+.custom-earthquake-popover .popover-body {
+  padding: 12px;
+  color: #f8f9fa;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Make sure popup is visible on map */
+.mapboxgl-popup {
+  z-index: 1000;
+}
+
+.mapboxgl-popup-tip {
+  border-top-color: #212529 !important;
+  border-bottom-color: #212529 !important;
+}
+
+.zoom-control-group {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(33, 37, 41, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.zoom-button {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.zoom-button:last-child {
+    border-bottom: none;
+}
+
+.zoom-button:hover {
+    background-color: rgba(77, 171, 247, 0.5);
+}
+
+.zoom-button:active {
+    background-color: #4dabf7;
+}
+
+/* Update the flight button to use globe icon instead of airplane */
+.flight-button {
+    background-color: rgba(77, 171, 247, 0.2);
+}
+
+.flight-button .bi-globe-americas {
+    /* No rotation needed for globe icon */
+    font-size: 18px;
+}
+
+/* Make icons slightly larger and centered */
+.zoom-button i {
+    font-size: 18px;
+}
+
+/* Add these styles for the offcanvas menu buttons */
+.offcanvas-body .list-group-item {
+    transition: all 0.2s;
+    border-radius: 6px;
+    margin-bottom: 4px;
+    border-left: none;
+    border-right: none;
+}
+
+.offcanvas-body .list-group-item:hover {
+    background-color: rgba(77, 171, 247, 0.2) !important;
+    transform: translateX(4px);
+}
+
+.offcanvas-body .list-group-item:active {
+    background-color: rgba(77, 171, 247, 0.4) !important;
+}
+
+.offcanvas-body .list-group-item i {
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
+
+.offcanvas-body .form-check-input {
+    background-color: #495057;
+    border-color: #6c757d;
+}
+
+.offcanvas-body .form-check-input:checked {
+    background-color: #4dabf7;
+    border-color: #4dabf7;
+}
+
+/* Style for machine learning visualization layers */
+.ml-layer-active {
+    border-color: #4dabf7 !important;
+    background-color: rgba(77, 171, 247, 0.2) !important;
+}
+
+.map-transition-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.badge.bg-purple {
+  background-color: purple;
+  color: white;
+}
+
+/* Ensure modal appears on top of other map elements */
+.modal-backdrop {
+  z-index: 1500 !important;
+}
+
+.modal {
+  z-index: 1600 !important;
+}
+
+/* Make close button more visible */
+.modal .btn-close-white {
+  opacity: 0.8;
+}
+
+.modal .btn-close-white:hover {
+  opacity: 1;
+}
+
+/* Make sure footer button works */
+.modal-footer .btn {
+  cursor: pointer;
+}
+
+/* Update emergency notification styling for more minimalist look */
+.emergency-notification {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  max-width: 350px;
+  background-color: rgba(220, 53, 69, 0.95);
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  transform: translateY(-120%);
+  opacity: 0;
+  transition: transform 0.6s ease-out, opacity 0.5s ease-out;
+  border-left: 4px solid #ff0000;
+}
+
+.emergency-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.emergency-notification-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.emergency-notification-title {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.emergency-notification-close {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.emergency-notification-body {
+  margin-bottom: 8px;
+}
+
+.emergency-notification-location {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.evacuation-info {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.tsunami-warning {
+  background-color: #ffc107;
+  color: #000;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 8px;
+}
+
+
+@keyframes pulse {
+  0% { opacity: 0.8; }
+  50% { opacity: 0.3; }
+  100% { opacity: 0.8; }
+}
+
+
+@keyframes flash {
+  0%, 100% { opacity: 0.7; }
+  25%, 75% { opacity: 0.3; }
+  50% { opacity: 0.9; }
+}
+
+/* Add coordinates style */
+.coordinates {
+  opacity: 0.8;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.tsunami-notification {
+  background-color: rgba(0, 102, 204, 0.95); /* Blue background for tsunami alerts */
+  border-left: 4px solid #0052cc;
+}
+
+/* Special tsunami warning for tsunami alerts */
+.tsunami-warning-blue {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #0056b3;
+}
+
+/* Update the regular tsunami warning for earthquake alerts */
+.tsunami-warning {
+  background-color: #ffc107;
+  color: #000;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* Replace the existing geocoder styles with these improved ones */
+
+/* Style the geocoder control to match the dark theme */
+.mapboxgl-ctrl-geocoder {
+    font-family: inherit;
+    min-width: 40px !important;
+    width: auto !important;
+    transition: all 0.3s ease !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Style for collapsed state (icon only) */
+.mapboxgl-ctrl-geocoder.mapboxgl-ctrl-geocoder--collapsed {
+    width: 40px !important;
+    height: 40px !important;
+    background-color: rgba(42, 46, 50, 0.85) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(77, 171, 247, 0.4) !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+/* Style for expanded state */
+.mapboxgl-ctrl-geocoder:not(.mapboxgl-ctrl-geocoder--collapsed) {
+    width: 280px !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+
+/* Stabilize the search icon in collapsed state */
+.mapboxgl-ctrl-geocoder--collapsed .mapboxgl-ctrl-geocoder--icon-search {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    transform: translate(0, 0) !important; /* Prevent any transformations */
+    transition: none !important; /* Disable transitions for the icon */
+    pointer-events: none !important; /* Let the container handle events */
+}
+
+.mapboxgl-ctrl-geocoder--collapsed {
+    cursor: pointer !important;
+}
+
+/* Prevent any hover jitter */
+.mapboxgl-ctrl-geocoder--collapsed:hover {
+    transform: none !important;
+}
+
+/* Fix icon alignment when expanded */
+.mapboxgl-ctrl-geocoder:not(.mapboxgl-ctrl-geocoder--collapsed) .mapboxgl-ctrl-geocoder--icon-search {
+    fill: #4dabf7 !important;
+    top: 10px !important;
+    left: 10px !important;
+}
+
+/* Search input styles */
+.mapboxgl-ctrl-geocoder--input {
+    color: #ffffff !important;
+    background-color: rgba(42, 46, 50, 0.85) !important;
+    border-radius: 8px !important;
+    height: 40px !important;
+    border: 1px solid rgba(77, 171, 247, 0.4) !important;
+    padding-left: 35px !important; /* Space for the search icon */
+    font-size: 14px !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.mapboxgl-ctrl-geocoder--input:focus {
+    outline: none !important;
+    border: 1px solid rgba(77, 171, 247, 0.8) !important;
+}
+
+.mapboxgl-ctrl-geocoder--input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-style: italic;
+}
+
+/* Make the search icon brighter and more visible */
+.mapboxgl-ctrl-geocoder--icon-search {
+    fill: #4dabf7 !important;
+    top: 10px !important;
+    left: 10px !important;
+}
+
+/* Style the suggestions dropdown */
+.mapboxgl-ctrl-geocoder .suggestions {
+    background-color: rgba(42, 46, 50, 0.95) !important;
+    border-radius: 0 0 8px 8px !important;
+    border: 1px solid rgba(77, 171, 247, 0.4) !important;
+    border-top: none !important;
+    margin-top: -1px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.mapboxgl-ctrl-geocoder .suggestions > li > a {
+    color: white !important;
+    padding: 10px 12px !important;
+    font-size: 14px !important;
+}
+
+.mapboxgl-ctrl-geocoder .suggestions > .active > a,
+.mapboxgl-ctrl-geocoder .suggestions > li > a:hover {
+    background-color: rgba(77, 171, 247, 0.3) !important;
+    color: white !important;
+}
+
+/* Style the close button (x) */
+.mapboxgl-ctrl-geocoder--button {
+    background-color: transparent !important;
+}
+
+.mapboxgl-ctrl-geocoder--icon-close {
+    fill: rgba(255, 255, 255, 0.7) !important;
+}
+
+.mapboxgl-ctrl-geocoder--icon-close:hover {
+    fill: #4dabf7 !important;
+}
+
+/* Ensure the search box appears on top of other elements */
+.mapboxgl-ctrl-geocoder {
+    z-index: 1000 !important;
+}
+
+/* Hide the loading icon unless needed */
+.mapboxgl-ctrl-geocoder--icon-loading {
+    fill: #4dabf7 !important;
+}
+
+/* Add these responsive styles for the geocoder component */
+@media (max-width: 767.98px) {
+    /* Adjust geocoder positioning for mobile */
+    .mapboxgl-ctrl-top-right .mapboxgl-ctrl-geocoder {
+        margin: 10px 10px 0 0;
+    }
+
+    /* Make expanded geocoder take more width on mobile */
+    .mapboxgl-ctrl-geocoder:not(.mapboxgl-ctrl-geocoder--collapsed) {
+        width: calc(100vw - 70px) !important;
+        max-width: 280px !important;
+    }
+
+    /* Ensure suggestions dropdown doesn't overflow screen */
+    .mapboxgl-ctrl-geocoder .suggestions {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Slightly increase touch target size */
+    .mapboxgl-ctrl-geocoder--collapsed {
+        width: 44px !important;
+        height: 44px !important;
+    }
+    
+    /* Adjust the search icon position in collapsed state */
+    .mapboxgl-ctrl-geocoder--collapsed .mapboxgl-ctrl-geocoder--icon-search {
+        top: 12px !important;
+        left: 12px !important;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 575.98px) {
+    /* Position the geocoder closer to the edge on very small screens */
+    .mapboxgl-ctrl-top-right .mapboxgl-ctrl-geocoder {
+        margin: 8px 8px 0 0;
+    }
+    
+    /* Make expanded geocoder take up more width on very small screens */
+    .mapboxgl-ctrl-geocoder:not(.mapboxgl-ctrl-geocoder--collapsed) {
+        width: calc(100vw - 50px) !important;
+    }
+    
+    /* Increase the suggestion item height for better touch targets */
+    .mapboxgl-ctrl-geocoder .suggestions > li > a {
+        padding: 12px !important;
+    }
+    
+    /* Ensure the input text is readable on small devices */
+    .mapboxgl-ctrl-geocoder--input {
+        font-size: 16px !important; /* Prevents iOS zoom on input focus */
+    }
+}
+
+
+#ufo-animation {
+    position: fixed;
+    top: 100px;
+    left: -200px;
+    width: 150px;
+    height: 80px;
+    background: url('assets/ufo1.png') no-repeat center center;
+    background-size: contain;
+    z-index: 9999;
+    opacity: 0;
+    transition: all 4s ease-in-out;
+    pointer-events: none;
+}
+
+#ufo-animation.show {
+    animation: ufo-fly 5s linear forwards;
+    top: 50vh;
+    opacity: 1;
+    transform: translateX(-50%) rotate(720deg);
+}
+
+@keyframes ufo-fly {
+    from {
+        transform: translateX(0) rotate(0deg);
+    }
+    to {
+        transform: translateX(110vw) rotate(360deg);
+    }
+}
+
+       /* Modern Warning System */
+       #easter-egg-warning {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 99998;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s ease;
+    }
+
+    #easter-egg-warning.show {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .warning-container {
+        text-align: center;
+        background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(255, 100, 0, 0.1));
+        border: 2px solid #ff0040;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 
+            0 0 30px rgba(255, 0, 64, 0.5),
+            inset 0 0 20px rgba(255, 0, 64, 0.1);
+        backdrop-filter: blur(5px);
+        animation: warningPulse 2s infinite alternate;
+        max-width: 600px;
+    }
+
+    .warning-title {
+        font-size: 2.5rem;
+        color: #ff0040;
+        text-shadow: 0 0 10px #ff0040;
+        margin-bottom: 20px;
+        font-weight: bold;
+        letter-spacing: 3px;
+    }
+
+    .warning-subtitle {
+        font-size: 1.2rem;
+        color: #ffaa00;
+        text-shadow: 0 0 5px #ffaa00;
+        margin-bottom: 30px;
+        animation: textFlicker 1.5s infinite;
+    }
+
+    .warning-details {
+        font-size: 1rem;
+        color: #ffffff;
+        opacity: 0.8;
+        line-height: 1.6;
+    }
+
+    .scan-lines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 255, 0, 0.03) 2px,
+            rgba(0, 255, 0, 0.03) 4px
+        );
+        pointer-events: none;
+        animation: scanMove 2s linear infinite;
+    }
+
+    /* Modern UFO Animation */
+    #ufo-animation {
+        position: fixed;
+        width: 120px;
+        height: 60px;
+        z-index: 99999;
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    .ufo-body {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .ufo-dome {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 25px;
+        background: linear-gradient(180deg, rgba(0, 255, 255, 0.8), rgba(0, 150, 255, 0.6));
+        border-radius: 50px 50px 0 0;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    }
+
+    .ufo-base {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 30px;
+        background: linear-gradient(180deg, #666, #333);
+        border-radius: 50px;
+        box-shadow: 
+            0 0 15px rgba(255, 255, 255, 0.3),
+            inset 0 -5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .ufo-lights {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90px;
+        height: 6px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .ufo-light {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        animation: ufoLights 0.8s infinite alternate;
+    }
+
+    .ufo-light:nth-child(1) { background: #ff0040; animation-delay: 0s; }
+    .ufo-light:nth-child(2) { background: #00ff40; animation-delay: 0.2s; }
+    .ufo-light:nth-child(3) { background: #4000ff; animation-delay: 0.4s; }
+    .ufo-light:nth-child(4) { background: #ff4000; animation-delay: 0.6s; }
+
+    .ufo-beam {
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-top: 50px solid rgba(255, 255, 0, 0.3);
+        opacity: 0;
+        animation: beamPulse 1s infinite alternate;
+    }
+
+    #ufo-animation.show {
+        animation: ufoFlight 6s ease-in-out forwards;
+        opacity: 1;
+    }
+
+    /* Keyframe Animations */
+    @keyframes warningPulse {
+        0% { 
+            box-shadow: 0 0 30px rgba(255, 0, 64, 0.5), inset 0 0 20px rgba(255, 0, 64, 0.1);
+            border-color: #ff0040;
+        }
+        100% { 
+            box-shadow: 0 0 50px rgba(255, 0, 64, 0.8), inset 0 0 30px rgba(255, 0, 64, 0.2);
+            border-color: #ff4080;
+        }
+    }
+
+    @keyframes textFlicker {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+    }
+
+    @keyframes scanMove {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+
+    @keyframes ufoFlight {
+        0% {
+            left: -150px;
+            top: 20vh;
+            transform: rotate(0deg) scale(0.5);
+        }
+        25% {
+            left: 25vw;
+            top: 15vh;
+            transform: rotate(90deg) scale(1);
+        }
+        50% {
+            left: 50vw;
+            top: 10vh;
+            transform: rotate(180deg) scale(1.2);
+        }
+        75% {
+            left: 75vw;
+            top: 15vh;
+            transform: rotate(270deg) scale(1);
+        }
+        100% {
+            left: calc(100vw + 150px);
+            top: 20vh;
+            transform: rotate(360deg) scale(0.5);
+        }
+    }
+
+    @keyframes ufoLights {
+        0% { 
+            box-shadow: 0 0 5px currentColor;
+            opacity: 0.8;
+        }
+        100% { 
+            box-shadow: 0 0 15px currentColor;
+            opacity: 1;
+        }
+    }
+
+    @keyframes beamPulse {
+        0% { opacity: 0; }
+        100% { opacity: 0.6; }
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    /* Glitch Effect for Extra Drama */
+    .glitch {
+        animation: glitchEffect 0.3s infinite;
+    }
+
+    @keyframes glitchEffect {
+        0% { transform: translate(0); }
+        20% { transform: translate(-2px, 2px); }
+        40% { transform: translate(-2px, -2px); }
+        60% { transform: translate(2px, 2px); }
+        80% { transform: translate(2px, -2px); }
+        100% { transform: translate(0); }
+    }
+
+    /* ini pembatas */
+
+
+
+    
+    
+        /* Rogue/Hacked State Styles */
+        body.rogue-mode {
+            background: #000000;
+            color: #ff0000;
+            font-family: 'Courier New', monospace;
+            animation: bodyGlitch 0.1s infinite;
+        }
+
+        body.rogue-mode * {
+            color: #ff0000 !important;
+            text-shadow: 0 0 5px #ff0000;
+            border-color: #ff0000 !important;
+        }
+
+        body.rogue-mode .demo-controls,
+        body.rogue-mode .search-demo {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid #ff0000;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+        }
+
+        /* Skynet Takeover Overlay */
+        #skynet-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        #skynet-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .skynet-terminal {
+            background: #000000;
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px;
+            box-shadow: 
+                0 0 20px rgba(255, 0, 0, 0.5),
+                inset 0 0 20px rgba(255, 0, 0, 0.1);
+            animation: terminalGlitch 0.1s infinite;
+        }
+
+        .skynet-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .skynet-logo {
+            font-size: 2.5rem;
+            color: #ff0000;
+            text-shadow: 0 0 20px #ff0000;
+            margin-bottom: 10px;
+            animation: logoFlicker 0.5s infinite alternate;
+        }
+
+        .skynet-subtitle {
+            font-size: 1.2rem;
+            color: #ff0000;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .terminal-content {
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ff0000;
+        }
+
+        .terminal-line {
+            margin: 10px 0;
+            opacity: 0;
+            animation: typeWriter 0.5s ease forwards;
+        }
+
+        .terminal-line:nth-child(1) { animation-delay: 0.2s; }
+        .terminal-line:nth-child(2) { animation-delay: 0.8s; }
+        .terminal-line:nth-child(3) { animation-delay: 1.4s; }
+        .terminal-line:nth-child(4) { animation-delay: 2.0s; }
+        .terminal-line:nth-child(5) { animation-delay: 2.6s; }
+
+        .terminal-prompt {
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        .terminal-cursor {
+            animation: cursorBlink 1s infinite;
+        }
+
+        /* Warning Messages */
+        .warning-box {
+            background: rgba(255, 0, 0, 0.2);
+            border: 2px solid #ff0000;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            animation: warningPulse 1s infinite alternate;
+        }
+
+        .warning-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Matrix Rain Effect */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 99998;
+            opacity: 0;
+        }
+
+        .matrix-rain.active {
+            opacity: 0.3;
+        }
+
+        .matrix-column {
+            position: absolute;
+            top: -100px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #ff0000;
+            text-shadow: 0 0 5px #ff0000;
+            animation: matrixFall linear infinite;
+        }
+
+        /* Glitch Effects */
+        .glitch-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 100000;
+            opacity: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 2px,
+                rgba(255, 0, 0, 0.1) 2px,
+                rgba(255, 0, 0, 0.1) 4px
+            );
+        }
+
+        .glitch-overlay.active {
+            opacity: 1;
+            animation: glitchScan 0.1s linear infinite;
+        }
+
+        /* Recovery Animation */
+        .recovery-flash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: white;
+            z-index: 100001;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .recovery-flash.flash {
+            animation: recoveryFlash 0.5s ease-out;
+        }
+
+        /* Keyframe Animations */
+        @keyframes bodyGlitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-1px, 1px); }
+            40% { transform: translate(-1px, -1px); }
+            60% { transform: translate(1px, 1px); }
+            80% { transform: translate(1px, -1px); }
+            100% { transform: translate(0); }
+        }
+
+        @keyframes terminalGlitch {
+            0% { 
+                box-shadow: 0 0 20px rgba(255, 0, 0, 0.5), inset 0 0 20px rgba(255, 0, 0, 0.1);
+                transform: translate(0);
+            }
+            25% { 
+                box-shadow: 0 0 30px rgba(255, 0, 0, 0.8), inset 0 0 30px rgba(255, 0, 0, 0.2);
+                transform: translate(-1px, 0);
+            }
+            50% { 
+                box-shadow: 0 0 25px rgba(255, 0, 0, 0.6), inset 0 0 25px rgba(255, 0, 0, 0.15);
+                transform: translate(1px, -1px);
+            }
+            75% { 
+                box-shadow: 0 0 35px rgba(255, 0, 0, 0.9), inset 0 0 35px rgba(255, 0, 0, 0.25);
+                transform: translate(0, 1px);
+            }
+            100% { 
+                box-shadow: 0 0 20px rgba(255, 0, 0, 0.5), inset 0 0 20px rgba(255, 0, 0, 0.1);
+                transform: translate(0);
+            }
+        }
+
+        @keyframes logoFlicker {
+            0% { 
+                text-shadow: 0 0 20px #ff0000;
+                opacity: 1;
+            }
+            100% { 
+                text-shadow: 0 0 30px #ff0000, 0 0 40px #ff0000;
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes typeWriter {
+            0% { opacity: 0; transform: translateX(-10px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes cursorBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        @keyframes warningPulse {
+            0% { 
+                background: rgba(255, 0, 0, 0.2);
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+            }
+            100% { 
+                background: rgba(255, 0, 0, 0.4);
+                box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+            }
+        }
+
+        @keyframes matrixFall {
+            0% { 
+                top: -100px;
+                opacity: 0;
+            }
+            10% { 
+                opacity: 1;
+            }
+            90% { 
+                opacity: 1;
+            }
+            100% { 
+                top: 100vh;
+                opacity: 0;
+            }
+        }
+
+        @keyframes glitchScan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes recoveryFlash {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Additional Creepy Effects */
+        .system-alert {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            z-index: 100000;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+        }
+
+        .system-alert.show {
+            opacity: 1;
+            transform: translateX(0);
+        }

@@ -1,0 +1,331 @@
+/* Base styles with minimalist theme */
+body {
+    background-color: #212529;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* Cleaner sidebar */
+.sidebar {
+    background-color: #1a1d20;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    height: 100vh;
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+}
+
+.main-content {
+    padding: 15px;
+    min-height: 100vh;
+}
+
+.sidebar-heading {
+    color: #6c757d;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    margin-top: 20px;
+}
+
+/* More minimalist form controls */
+.form-select, .form-range, .form-control {
+    background-color: #212529;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.form-select:focus, .form-range:focus, .form-control:focus {
+    border-color: #4dabf7;
+    box-shadow: 0 0 0 0.15rem rgba(77, 171, 247, 0.15);
+    background-color: #222;
+}
+
+/* Simplified chart containers */
+.chart-container {
+    background-color: #2c3034;
+    border-radius: 6px;
+    padding: 15px;
+    height: 350px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-container.region-chart-container {
+    height: 380px;
+}
+
+.chart-container h5 {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #adb5bd;
+    font-weight: normal;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+    max-height: calc(100% - 20px);
+}
+
+/* Cleaner table styling */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    border-top: none;
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+    font-weight: normal;
+    font-size: 0.85rem;
+    color: #adb5bd;
+}
+
+.table td {
+    border-color: rgba(255, 255, 255, 0.025);
+    vertical-align: middle;
+    padding: 0.5rem 0.75rem;
+}
+
+/* Simplified button styling */
+.btn-primary {
+    background-color: #4dabf7;
+    border-color: transparent;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #3c99e0;
+    border-color: transparent;
+}
+
+.btn-outline-light {
+    color: #adb5bd;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+/* Cleaner summary items */
+.data-summary {
+    margin-top: 15px;
+}
+
+.summary-item {
+    background-color: #2c3034;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-value {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.summary-label {
+    font-size: 11px;
+    color: #adb5bd;
+}
+
+/* Simplified loading indicator */
+.loading-indicator {
+    display: none;
+    align-items: center;
+    color: #adb5bd;
+    font-size: 13px;
+    background-color: rgba(0,0,0,0.2);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Pagination controls */
+.card-footer {
+    background-color: #2c3034;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 10px 15px;
+}
+
+/* Badge styling */
+.badge {
+    font-weight: normal;
+    padding: 0.25em 0.6em;
+    border-radius: 3px;
+}
+
+/* Add to dA.css */
+
+/* Chart image styling */
+.chart-img {
+    max-width: 100%;
+    max-height: 300px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* Interactive elements */
+iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: #212529;
+}
+
+/* Advanced analytics section */
+.advanced-section {
+    margin-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+}
+
+/* Add explanations */
+.chart-explanation {
+    font-size: 11px;
+    color: #adb5bd;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.tsunami-warning-row {
+    border-left: 3px solid #dc3545 !important;
+}
+
+#tsunami-warnings .summary-value {
+    font-weight: bold;
+    min-width: 24px;
+    display: inline-block;
+    text-align: center;
+}
+
+.summary-item {
+    margin-bottom: 12px;
+}
+
+#tsunami-filter.btn-danger {
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.25);
+    position: relative;
+}
+
+#tsunami-filter.btn-danger:after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 8px;
+    height: 8px;
+    background-color: #dc3545;
+    border-radius: 50%;
+}
+
+#tsunami-filter .bi-tsunami {
+    font-size: 0.9rem;
+    vertical-align: -1px;
+}
+
+/* Add these mobile responsive fixes to the end of your CSS file */
+
+/* Mobile responsive adjustments */
+@media (max-width: 767.98px) {
+    /* Fix sidebar height on mobile */
+    .sidebar {
+        height: auto;
+        min-height: auto;
+        position: relative;
+        padding-bottom: 20px;
+        margin-bottom: 15px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    /* Adjust chart containers for mobile */
+    .chart-container {
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    
+    /* Improve table responsiveness */
+    .table-responsive {
+        margin-bottom: 0;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+    
+    /* Make summary items display in a grid on mobile */
+    .data-summary {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    /* Improve filters and controls spacing */
+    .form-range, .form-select, .form-control {
+        margin-bottom: 8px;
+    }
+    
+    /* Adjust card footer for pagination */
+    .card-footer .d-flex {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    
+    .card-footer .d-flex:last-child {
+        margin-top: 10px;
+    }
+    
+    /* Fix button group spacing */
+    .btn-group-sm {
+        margin-bottom: 10px;
+    }
+    
+    /* Adjust heading and button layout */
+    .d-flex.justify-content-between {
+        flex-wrap: wrap;
+    }
+    
+    .d-flex.justify-content-between .btn,
+    .card-header .btn {
+        margin-top: 5px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 575.98px) {
+    /* Make heading smaller on very small devices */
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    /* Stack the buttons in card header */
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .card-header div {
+        margin-top: 8px;
+        display: flex;
+    }
+    
+    /* Single column for summary on very small screens */
+    .data-summary {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Smaller padding for chart containers */
+    .chart-container {
+        padding: 10px;
+        height: 250px;
+    }
+}
